@@ -1,5 +1,6 @@
 import random,pygame
 
+############################linear network simple line division test######################################
 
 class perceptron(object):
 	def __init__(self):
