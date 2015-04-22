@@ -2,14 +2,17 @@ import random,pygame
 
 ############################linear network simple line division test######################################
 
+#main perceptron class
 class perceptron(object):
 	def __init__(self):
+		#initliaize
 		self.weights = []
 		for i in range(0,3):
 			self.weights.append(random.randint(-10,10)/10.0)
 		self.LEARNING_CONSTANT = 0.01
 
 	def feedforward(self,inputs):
+		#evaluate the inputs with the perceptron 
 		sum = 0
 		for j in range(0,len(inputs)):
 			sum += inputs[j] * self.weights[j]
@@ -17,21 +20,24 @@ class perceptron(object):
 		return self.activate(sum)
 
 	def activate(self,value):
+		#the activation function
 		if value > 0:
 			return 1
 		else:
 			return -1
 
 	def train(self,inputs,desired):
+		#the training function
 		guess = self.feedforward(inputs)
 		difference = desired - guess
 		for k in range(0,2):
 			self.weights[k] += self.LEARNING_CONSTANT * difference * inputs[k]
 		self.weights[2] += self.LEARNING_CONSTANT * difference
 
-
+#create a perceptron
 p = perceptron()
 
+#train the perceptron
 for m in range(0,100):
 	x = random.randint(-200,200)
 	y = random.randint(-200,200)
@@ -41,11 +47,11 @@ for m in range(0,100):
 		ans = -1
 	p.train((x,y),ans)
 
-
+#create a pygame window
 window = pygame.display.set_mode((1000,1000))
 window.fill((255,255,255))
 
-
+#test the perceptron
 for m in range(0,100000):
     x = random.randint(-500,500)
     y = random.randint(-500,500)
@@ -65,6 +71,8 @@ for m in range(0,100000):
 
 pygame.display.flip()
 
+
+#main function loop
 j = 1
 while j:
     for event in pygame.event.get():
