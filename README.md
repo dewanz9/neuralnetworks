@@ -1,2 +1,2 @@
 # neuralnetworks
-me working and learning neural networks
+me working on and learning neural networks
