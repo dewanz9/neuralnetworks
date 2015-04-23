@@ -34,15 +34,4 @@ class perceptron(object):
 			self.weights[k] += self.LEARNING_CONSTANT * difference * inputs[k]
 		self.weights[2] += self.LEARNING_CONSTANT * difference
 
-#create a perceptron
-p = perceptron()
 
-#train the perceptron
-for m in range(0,100):
-	x = random.randint(-200,200)
-	y = random.randint(-200,200)
-	if y > -0.2*x:
-		ans = 1
-	else:
-		ans = -1
-	p.train((x,y),ans)
