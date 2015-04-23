@@ -4,10 +4,10 @@ import random,pygame
 
 #main perceptron class
 class perceptron(object):
-	def __init__(self):
+	def __init__(self,num_of_inputs):
 		#initliaize
 		self.weights = []
-		for i in range(0,3):
+		for i in range(0,num_of_inputs):
 			self.weights.append(random.randint(-10,10)/10.0)
 		self.LEARNING_CONSTANT = 0.01
 
