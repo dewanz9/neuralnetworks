@@ -46,35 +46,3 @@ for m in range(0,100):
 	else:
 		ans = -1
 	p.train((x,y),ans)
-
-#create a pygame window
-window = pygame.display.set_mode((1000,1000))
-window.fill((255,255,255))
-
-#test the perceptron
-for m in range(0,100000):
-    x = random.randint(-500,500)
-    y = random.randint(-500,500)
-
-    dotg = pygame.Surface((10,10))
-    dotg.fill((255,255,255))
-    pygame.draw.circle(dotg,(255,0,0),(5,5),5,0)
-
-    dotr = pygame.Surface((10,10))
-    dotr.fill((255,255,255))
-    pygame.draw.circle(dotr,(0,255,0),(5,5),5,0)
-    
-    if p.feedforward((x,y,1)) == 1:
-        window.blit(dotg,(x+500,500-y))
-    else:
-        window.blit(dotr,(x+500,500-y))
-
-pygame.display.flip()
-
-
-#main function loop
-j = 1
-while j:
-    for event in pygame.event.get():
-        if event.type == 12:
-            j = 0
